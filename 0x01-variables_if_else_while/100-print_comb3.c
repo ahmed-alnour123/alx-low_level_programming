@@ -7,9 +7,11 @@
  */
 int main(void)
 {
-	for (int i = 48; i <= 48 + 9; i++)
+	int i = 0;
+	int j = 0;
+	for (i = 48; i <= 48 + 9; i++)
 	{
-		for (int j = i; j <= 48 + 9; j++)
+		for (j = i; j <= 48 + 9; j++)
 		{
 			if (i == j)
 				continue;
