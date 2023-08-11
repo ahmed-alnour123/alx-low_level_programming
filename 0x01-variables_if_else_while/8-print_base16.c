@@ -8,6 +8,7 @@
 int main(void)
 {
 	int i = 0;
+
 	for (i = 48; i <= 'z'; i++)
 	{
 		if (i > 57 && i < 'a')
