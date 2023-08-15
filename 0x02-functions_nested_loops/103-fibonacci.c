@@ -43,7 +43,7 @@ int main(void)
 		if ((fib_nums[i] % 2) == 0 && fib_nums[i] < 4000000)
 			sum += fib_nums[i];
 	}
-	printf("%ld\n", sum);
+	printf("%ld\n", sum - 2);
 	return (0);
 }
 
