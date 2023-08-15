@@ -2,8 +2,9 @@
 /**
  * print_num - prints number
  * @i: number
+ * @is_first: is_first
  */
-void print_num(int i)
+void print_num(int i, int is_first)
 {
 	int first, second, third;
 
@@ -14,7 +15,8 @@ void print_num(int i)
 		second = i % 10;
 		i /= 10;
 		third = i % 10;
-		_putchar(' ');
+		if (is_first)
+			_putchar(' ');
 		_putchar('0' + third);
 		_putchar('0' + second);
 		_putchar('0' + first);
@@ -23,16 +25,22 @@ void print_num(int i)
 	{
 		i /= 10;
 		second = i % 10;
-		_putchar(' ');
-		_putchar(' ');
+		if (is_first)
+		{
+			_putchar(' ');
+			_putchar(' ');
+		}
 		_putchar('0' + second);
 		_putchar('0' + first);
 	}
 	else
 	{
-		_putchar(' ');
-		_putchar(' ');
-		_putchar(' ');
+		if (is_first)
+		{
+			_putchar(' ');
+			_putchar(' ');
+			_putchar(' ');
+		}
 		_putchar('0' + first);
 	}
 }
@@ -59,7 +67,7 @@ void print_times_table(int n)
 				_putchar(',');
 			}
 
-			print_num(mult);
+			print_num(mult, j != 0);
 		}
 		_putchar('\n');
 	}

@@ -25,8 +25,8 @@ int main(void)
 
 	n = 32;
 	fib_nums[0] = 1;
-	fib_nums[1] = 1;
-	fib_nums[2] = 2;
+	fib_nums[1] = 2;
+	fib_nums[2] = 3;
 
 	for (i = 1; i < n; i++)
 	{
@@ -37,11 +37,13 @@ int main(void)
 		f = fib(n, fib_nums);
 		fib_nums[i] = f;
 
-	for (i = 2; i <= 32; i += 2)
+	for (i = 2; i < 50; i++)
 	{
-		sum += fib_nums[i];
+		fib_nums[i] = fib_nums[i - 1] + fib_nums[i - 2];
+		if ((fib_nums[i] % 2) == 0 && fib_nums[i] < 4000000)
+			sum += fib_nums[i];
 	}
-	printf("sum is %ld\n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
 
