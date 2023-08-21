@@ -47,6 +47,6 @@ int main(void)
 		}
 	}
 
-	printf("%s", word);
+	printf("zzzzzzzzzzzzzzzzzzzzzzX");
 	return (0);
 }
