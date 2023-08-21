@@ -37,7 +37,7 @@ int _atoi(char *s)
 			num *= 10;
 			if (num > INT_MAX - (*s - '0'))
 			{
-        return INT_MIN;
+				return (INT_MIN);
 			}
 			num += *s - '0';
 		}
