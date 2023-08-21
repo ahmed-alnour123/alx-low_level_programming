@@ -47,6 +47,7 @@ int main(void)
 		}
 	}
 
+	word[0] = word[0];
 	printf("zzzzzzzzzzzzzzzzzzzzzzX");
 	return (0);
 }
