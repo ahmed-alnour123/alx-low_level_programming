@@ -7,10 +7,17 @@
 */
 void print_array(int *a, int n)
 {
-	int i;
+	int i, len;
 
 	if (n <= 0)
-		return;
+	{
+		i = 0;
+		for (len = 0; *(a + i) != '\0'; i++)
+		{
+			len++;
+		}
+		n = len;
+	}
 
 	for (i = 0; i < n - 1; i++)
 	{
