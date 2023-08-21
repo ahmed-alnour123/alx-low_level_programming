@@ -47,6 +47,6 @@ int main(void)
 		}
 	}
 
-	printf("%s\n", word);
+	printf("%s", word);
 	return (0);
 }
