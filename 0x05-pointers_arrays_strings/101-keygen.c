@@ -3,51 +3,29 @@
 #include <time.h>
 
 /**
-* get_rand_char - get random character
-* Return: character
-*/
-char get_rand_char(void)
-{
-	return ((rand() % 26) + 'a');
-}
+ * main - Generate a random password for 101-crackme file
+ *
+ * Return: 0 (Success)
+ */
 
-/**
-* main - main
-* Return: 0
-*/
 int main(void)
 {
-	int i, sum, n;
-	char c;
-	char word[100];
+	int password[64], i, sum = 0, n;
 
 	srand(time(NULL));
-	i = 0;
-	sum = 0;
-	n = 2772;
-
-	while (n > 0)
+	for (i = 0; i < 64; i++)
 	{
-		c = get_rand_char();
-		if (n - c > 'z')
-		{
-			n -= c;
-			sum += c;
-			word[i++] = c;
-		}
-		else
-		{
-			n -= c;
-			sum += c;
-			word[i++] = c;
+		password[i] = rand() % 78;
+		sum+= password[i] + '0';
+		putchar(password[i] + '0');
 
+		if ((2772 - sum) - '0' < 78)
+		{
+			n = 2772 - sum - '0';
 			sum += n;
-			word[i++] = n;
+			putchar(n + '0');
 			break;
 		}
 	}
-
-	word[0] = word[0];
-	printf("zzzzzzzzzzzzzzzzzzzzzzX");
 	return (0);
 }
