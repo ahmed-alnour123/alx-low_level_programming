@@ -1,3 +1,5 @@
+#include <limits.h>
+
 /**
  * is_digit - check if character is digit
  * @c: input
@@ -33,6 +35,10 @@ int _atoi(char *s)
 		{
 			found_number = 1;
 			num *= 10;
+			if (num > INT_MAX - (*s - '0'))
+			{
+        return INT_MIN;
+			}
 			num += *s - '0';
 		}
 		else
