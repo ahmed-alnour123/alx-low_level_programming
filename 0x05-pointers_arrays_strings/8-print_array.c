@@ -7,16 +7,12 @@
 */
 void print_array(int *a, int n)
 {
-	int i, len;
+	int i;
 
 	if (n <= 0)
 	{
-		i = 0;
-		for (len = 0; *(a + i) != '\0'; i++)
-		{
-			len++;
-		}
-		n = len;
+		printf("\n");
+		return;
 	}
 
 	for (i = 0; i < n - 1; i++)
