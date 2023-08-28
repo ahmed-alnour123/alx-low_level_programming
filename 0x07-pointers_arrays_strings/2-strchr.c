@@ -10,14 +10,14 @@ char *_strchr(char *s, char c)
 
 	loc = 0;
 	if (*s == c)
-	  return (s);
+		return (s);
 
 	while (*s != '\0')
 	{
 		if (*s != c)
 		{
-      s++;
-      continue;
+			s++;
+			continue;
 		}
 		return (s);
 	}
