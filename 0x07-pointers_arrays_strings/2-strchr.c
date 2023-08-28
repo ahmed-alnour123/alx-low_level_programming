@@ -13,7 +13,8 @@ char *_strchr(char *s, char c)
 	{
 		if (*s++ != c)
 			continue;
-		loc = s;
+		loc = s - 1;
+		break;
 	}
 
 	return (loc);
