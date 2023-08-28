@@ -6,21 +6,15 @@
 */
 char *_strchr(char *s, char c)
 {
-	char *loc;
+		int i;
 
-	loc = 0;
-	if (*s == c)
-		return (s);
-
-	while (*s != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (*s != c)
-		{
-			s++;
-			continue;
-		}
-		return (s);
+		if (s[i] == c)
+			return (s + i);
 	}
+	if (s[i] == c)
+		return (s + i);
 
-	return (loc);
+	return (0);
 }
