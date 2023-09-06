@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 	}
 	total_length += ac;
 
-	result = malloc(total_length * sizeof(char));
+	result = malloc((total_length + 1) * sizeof(char));
 	i = 0;
 	words = 0;
 	while (words < ac)

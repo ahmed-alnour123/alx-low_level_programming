@@ -36,22 +36,28 @@ char *str_concat(char *s1, char *s2)
 	if (result == 0)
 		return (0);
 
-	while (ii < len1)
+	if (len1 > 0)
 	{
-		result[i] = s1[ii];
-		i++;
-		ii++;
+		while (ii < len1)
+		{
+			result[i] = s1[ii];
+			i++;
+			ii++;
+		}
 	}
 
-	ii = 0;
-	while (ii < len2)
+	if (len2 > 0)
 	{
-		result[i] = s2[ii];
-		i++;
-		ii++;
+		ii = 0;
+		while (ii < len2)
+		{
+			result[i] = s2[ii];
+			i++;
+			ii++;
+		}
 	}
 
-	result[i] = '\0';
+	result[len1 + len2] = '\0';
 
 	return (result);
 }
