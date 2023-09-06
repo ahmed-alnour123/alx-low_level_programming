@@ -32,7 +32,7 @@ char *_strdup(char *str)
 	len = _strlen_recursion(str) + 1;
 	result = malloc(sizeof(char) * len);
 	if (result == 0)
-	  return (0);
+		return (0);
 	while (i < len)
 	{
 		result[i] = str[i];
