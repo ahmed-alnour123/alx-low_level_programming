@@ -1,10 +1,10 @@
+#include <stdlib.h>
 /**
 * _calloc - calloc
 * @nmemb: number of members
 * @size: size of each memeber
 * Return: void pointer
 */
-#include <stdlib.h>
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
