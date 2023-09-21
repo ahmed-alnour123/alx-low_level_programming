@@ -43,26 +43,26 @@ int _strlen_recursion(char *s)
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-  int len_name, len_owner;
-  char *name_str, *owner_str;
-  dog_t *dog;
+	int len_name, len_owner;
+	char *name_str, *owner_str;
+	dog_t *dog;
 
-  len_name = _strlen_recursion(name);
-  len_owner = _strlen_recursion(owner);
+	len_name = _strlen_recursion(name);
+	len_owner = _strlen_recursion(owner);
 
-  name_str = malloc(sizeof(char) * (len_name + 1));
-  owner_str = malloc(sizeof(char) * (len_owner + 1));
-  dog = malloc(sizeof(dog_t));
+	name_str = malloc(sizeof(char) * (len_name + 1));
+	owner_str = malloc(sizeof(char) * (len_owner + 1));
+	dog = malloc(sizeof(dog_t));
 
-  if (dog == 0 || name_str == 0 || owner_str == 0)
-    return (0);
-  
-  _strcpy(name_str, name);
-  _strcpy(owner_str, owner);
+	if (dog == 0 || name_str == 0 || owner_str == 0)
+		return (0);
 
-  dog -> name = name;
-  dog -> age = age;
-  dog -> owner = owner;
+	_strcpy(name_str, name);
+	_strcpy(owner_str, owner);
 
-  return dog;
+	dog->name = name;
+	dog->age = age;
+	dog->owner = owner;
+
+	return (dog);
 }
