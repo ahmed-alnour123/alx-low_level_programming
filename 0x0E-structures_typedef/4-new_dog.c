@@ -2,72 +2,52 @@
 #include <stdlib.h>
 
 /**
-* _strcpy - copies string src to dest
-* @dest: destination string
-* @src: source string
-* Return: pointer to dest
-*/
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-
-	i = 0;
-	while (*src != '\0')
-	{
-		dest[i++] = *src++;
-	}
-	dest[i++] = *src++;
-	return (dest);
-}
-
-/**
-* _strlen_recursion - _strlen_recursion
-* @s: input
-* Return: length
-*/
-int _strlen_recursion(char *s)
-{
-	if (*s == '\0')
-	{
-		return (0);
-	}
-	return (1 + _strlen_recursion(++s));
-}
-
-/**
-* new_dog - new_dog
-* @name: input
-* @age: input
-* @owner: input
-* Return: new dog
-*/
+ * new_dog - makes a dog
+ *
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: dog's owner
+ *
+ * Return: pointer to dog
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int len_name, len_owner;
-	char *name_str, *owner_str;
-	dog_t *dog;
+	dog_t *d;
+	int len;
+	char *ptr;
 
-	len_name = _strlen_recursion(name);
-	len_owner = _strlen_recursion(owner);
+	if (name == 0 || owner == 0)
+		return (NULL);
+	d = malloc(sizeof(dog_t));
+	if (d == NULL)
+		return (NULL);
 
-	name_str = malloc(sizeof(char) * (len_name + 1));
-	owner_str = malloc(sizeof(char) * (len_owner + 1));
-	dog = malloc(sizeof(dog_t));
-
-	if (dog == 0 || name_str == 0 || owner_str == 0)
+	for (len = 1, ptr = name; *ptr; len++)
+		ptr++;
+	d->name = malloc(len);
+	if (d->name == 0)
 	{
-		free(dog);
-		free(name_str);
-		free(owner_str);
-		return (0);
+		free(d);
+		return (NULL);
 	}
 
-	_strcpy(name_str, name);
-	_strcpy(owner_str, owner);
+	for (len = 1, ptr = owner; *ptr; len++)
+		ptr++;
+	d->owner = malloc(len);
+	if (d->owner == 0)
+	{
+		free(d->name);
+		free(d);
+		return (NULL);
+	}
 
-	dog->name = name;
-	dog->age = age;
-	dog->owner = owner;
+	for (len = 0; *name != 0; len++, name++)
+		d->name[len] = *name;
+	d->name[len] = 0;
+	for (len = 0; *owner != 0; len++)
+		d->owner[len] = *owner++;
+	d->owner[len] = 0;
+	d->age = age;
 
-	return (dog);
+	return (d);
 }
